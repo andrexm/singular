@@ -2,13 +2,11 @@
 
 namespace Src\Core;
 
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
+use Jenssegers\Blade\Blade;
 
 class View
 {
-    private FilesystemLoader $loader;
-    private Environment $twig;
+    private Blade $blade;
 
     /**
      * Constructor
@@ -17,7 +15,7 @@ class View
      */
     public function __construct(string $path)
     {
-        $this->loader = new FilesystemLoader($path);
+        $this->blade = new Blade($path, VIEWS_CACHE);
     }
 
     /**
@@ -25,11 +23,9 @@ class View
      *
      * @param string $view
      * @param array $data
-     * @return string
      */
-    public function render(string $view, $data = []): string
+    public function render(string $view, $data = [])
     {
-        $this->twig = new Environment($this->loader);
-        return $this->twig->render($view, $data);
+        return $this->blade->make($view, $data);
     }
 }

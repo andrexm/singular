@@ -33,9 +33,8 @@ function assets(string $path): string
  *
  * @param string $view
  * @param array $data
- * @return void
  */
-function view(string $view, $data = []): string
+function view(string $view, $data = [])
 {
-    return (new View(VIEWS_PATH))->render($view . '.' . VIEW_DEFAULT_EXT, $data);
+    return (new View(VIEWS_PATH))->render($view, $data);
 }

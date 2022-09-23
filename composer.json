@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "twig/twig": "^3.4",
-        "coffeecode/datalayer": "^2.0"
+        "coffeecode/datalayer": "^2.0",
+        "jenssegers/blade": "^1.4"
     }
 }

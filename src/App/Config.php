@@ -21,5 +21,5 @@ define('DATA_LAYER_CONFIG', [
 ]);
 
 // Views
-define('VIEW_DEFAULT_EXT', 'html');
 define('VIEWS_PATH', DIR . 'views');
+define('VIEWS_CACHE', DIR . 'storage/cache/views');
