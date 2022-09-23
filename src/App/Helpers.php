@@ -29,7 +29,7 @@ function assets(string $path): string
 }
 
 /**
- * Returns a Twig rendered view
+ * Returns a Blade rendered view
  *
  * @param string $view
  * @param array $data
