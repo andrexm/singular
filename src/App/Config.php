@@ -4,6 +4,7 @@ define('ENV', str_contains($_SERVER['HTTP_HOST'], 'localhost') ? 'dev' : 'prod')
 define('BASE', (ENV === 'dev') ? 'http://localhost:8000' : '');
 define('DIR', __DIR__ . "../../../");
 
+// Database
 const DATA_LAYER_CONFIG = [
     "driver" => "mysql",
     "host" => "localhost",
@@ -18,3 +19,7 @@ const DATA_LAYER_CONFIG = [
         PDO::ATTR_CASE => PDO::CASE_NATURAL
     ]
 ];
+
+// Views
+define('VIEW_DEFAULT_EXT', 'html');
+define('VIEWS_PATH', DIR . '/views');
