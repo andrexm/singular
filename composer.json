@@ -17,7 +17,6 @@
         }
     ],
     "require": {
-        "coffeecode/router": "^2.0",
         "twig/twig": "^3.4"
     }
 }
