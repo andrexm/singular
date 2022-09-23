@@ -95,6 +95,8 @@ class Router
         if (!$controller) {
             return $this->error = 404;
         }
-        (new $controller[0]())->index();
+        $con = new $controller[0]();
+        $method = $controller[1];
+        return $con->$method();
     }
 }
