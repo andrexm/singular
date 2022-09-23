@@ -95,6 +95,8 @@ class Router
         if (!$controller) {
             return $this->error = 404;
         }
+
+        // Creates an instance of that class and call its respective method
         $con = new $controller[0]();
         $method = $controller[1];
         return $con->$method();
