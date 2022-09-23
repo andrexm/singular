@@ -1,0 +1,23 @@
+{
+    "name": "andresn-su/homely",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        },
+        "files": [
+            "src/App/Helpers.php",
+            "src/App/Config.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "andresn-su",
+            "email": "andre.s.04.get.up@gmail.com"
+        }
+    ],
+    "require": {
+        "coffeecode/router": "^2.0",
+        "twig/twig": "^3.4"
+    }
+}
