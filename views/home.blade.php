@@ -1,5 +1,7 @@
 @extends('master')
 
 @section('content')
-    Hadhadhhadh
+    <div class="hello">
+        {{ $msg }}
+    </div>
 @endsection
