@@ -10,7 +10,6 @@ require "vendor/autoload.php";
 $router = new Router(BASE);
 
 $router->get('/', [Home::class, 'index']);
-$router->post('/contact', [Home::class, 'save']);
 
 $router->dispatch();
 if ($router->error) {
