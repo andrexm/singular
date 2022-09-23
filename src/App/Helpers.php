@@ -4,7 +4,7 @@
  * URL - Returns the current URL with the given path
  *
  * @param string|null $path
- * @return void
+ * @return string
  */
 function url(string $path = null)
 {
