@@ -5,7 +5,7 @@ define('BASE', (ENV === 'dev') ? 'http://localhost:8000' : '');
 define('DIR', __DIR__ . "../../../");
 
 // Database
-const DATA_LAYER_CONFIG = [
+define('DATA_LAYER_CONFIG', [
     "driver" => "mysql",
     "host" => "localhost",
     "port" => "3306",
@@ -18,7 +18,7 @@ const DATA_LAYER_CONFIG = [
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
         PDO::ATTR_CASE => PDO::CASE_NATURAL
     ]
-];
+]);
 
 // Views
 define('VIEW_DEFAULT_EXT', 'html');
