@@ -1,5 +1,6 @@
 <?php
 
+use Src\Core\Request;
 use Src\Core\Session;
 use Src\Core\View;
 
@@ -102,4 +103,38 @@ function session(string $name = null)
 {
     if ($name) return (new Session)->flash($name);
     return (new Session);
+}
+
+
+// SESSION --------------------------------------------------------------------
+
+function csrf(): string
+{
+    $session = new Session();
+    $session->csrf();
+    return "<input type='hidden' name='csrf' value='" . ($session->csrf_token ?? "") . "'/>";
+}
+
+/**
+ * @param $request
+ * @return bool
+ */
+function csrf_verify($request): bool
+{
+    $session = new Session();
+    if (empty($session->csrf_token) || empty($request['csrf']) || $request['csrf'] != $session->csrf_token) {
+        return false;
+    }
+    return true;
+}
+
+
+// REQUESTS --------------------------------------------------------------------
+
+/**
+ * @return Request
+ */
+function request(): Request
+{
+    return Request::getInstance();
 }
