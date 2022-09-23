@@ -22,4 +22,4 @@ const DATA_LAYER_CONFIG = [
 
 // Views
 define('VIEW_DEFAULT_EXT', 'html');
-define('VIEWS_PATH', DIR . '/views');
+define('VIEWS_PATH', DIR . 'views');

@@ -25,9 +25,9 @@ class View
      *
      * @param string $view
      * @param array $data
-     * @return void
+     * @return string
      */
-    public function render(string $view, $data = [])
+    public function render(string $view, $data = []): string
     {
         $this->twig = new Environment($this->loader);
         return $this->twig->render($view, $data);

@@ -6,6 +6,6 @@ class Home
 {
     public function index()
     {
-        echo 'home';
+        echo view('home', ['m' => 'welcome!']);
     }
 }
