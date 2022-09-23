@@ -88,3 +88,18 @@ function view(string $view, $data = [])
 {
     return (new View(VIEWS_PATH))->render($view, $data);
 }
+
+
+// SESSION --------------------------------------------------------------------
+
+/**
+ * Returns a flash message or an instance of the Session class
+ *
+ * @param string|null $name
+ * @return void
+ */
+function session(string $name = null)
+{
+    if ($name) return (new Session)->flash($name);
+    return (new Session);
+}
