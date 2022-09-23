@@ -18,6 +18,17 @@ function url(string $path = null): string
 }
 
 /**
+ * A better way to insert the assets to your view
+ *
+ * @param string $path
+ * @return string
+ */
+function assets(string $path): string
+{
+    return url('/assets/' . $path);
+}
+
+/**
  * Returns a Twig rendered view
  *
  * @param string $view
