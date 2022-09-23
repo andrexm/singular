@@ -1,6 +1,10 @@
 <?php
 
+use Src\Core\Session;
 use Src\Core\View;
+
+
+// URLs --------------------------------------------------------------------
 
 /**
  * URL - Returns the current URL with the given path
@@ -18,6 +22,49 @@ function url(string $path = null): string
 }
 
 /**
+ * @return string
+ */
+function url_back(): string
+{
+    return ($_SERVER["HTTP_REFERER"] ?? url());
+}
+
+/**
+ * Redirects to the specified url with also the possibility of passing a flash message
+ *
+ * @param string $url
+ * @param array $with
+ * @return void
+ */
+function redirect(string $url, array $with = []): void
+{
+    if (count($with)) (new Session)->set($with[0], $with[1]);
+
+    header("HTTP/1.1 302 Redirect");
+    if (filter_var($url, FILTER_VALIDATE_URL)) {
+        header("Location: {$url}");
+        exit;
+    }
+
+    if (filter_input(INPUT_GET, "route", FILTER_DEFAULT) != $url) {
+        $location = url($url);
+        header("Location: {$location}");
+        exit;
+    }
+}
+
+/**
+ * Redirects to the previous url
+ *
+ * @param array $with
+ * @return void
+ */
+function back(array $with = [])
+{
+    return redirect(url_back(), $with);
+}
+
+/**
  * A better way to insert the assets to your view
  *
  * @param string $path
@@ -27,6 +74,9 @@ function assets(string $path): string
 {
     return url('/assets/' . $path);
 }
+
+
+// VIEWs --------------------------------------------------------------------
 
 /**
  * Returns a Blade rendered view
