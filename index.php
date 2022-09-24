@@ -13,7 +13,7 @@ $router->get('/', [Home::class, 'index']);
 
 $router->dispatch();
 if ($router->error) {
-    echo 'Pádginad =';
+    echo view('error');
 }
 
 ob_end_flush();
