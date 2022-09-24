@@ -1,7 +1,7 @@
 <?php
 
 define('ENV', str_contains($_SERVER['HTTP_HOST'], 'localhost') ? 'dev' : 'prod');
-define('BASE', (ENV === 'dev') ? 'http://localhost:8000' : '');
+define('BASE', (ENV === 'dev') ? 'http://localhost:8000' : 'https://yourwebsite.com');
 define('DIR', __DIR__ . "../../../");
 
 // Database
