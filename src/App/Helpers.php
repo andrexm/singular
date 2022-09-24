@@ -105,9 +105,11 @@ function session(string $name = null)
     return (new Session);
 }
 
-
-// SESSION --------------------------------------------------------------------
-
+/**
+ * Generates a CSRF input field
+ * 
+ * @return string
+ */
 function csrf(): string
 {
     $session = new Session();
