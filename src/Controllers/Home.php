@@ -6,6 +6,6 @@ class Home
 {
     public function index()
     {
-        echo view('home', ['msg' => 'welcome!']);
+        echo view('home', ['msg' => 'Welcome to Singular!']);
     }
 }
