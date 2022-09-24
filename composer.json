@@ -1,5 +1,5 @@
 {
-    "name": "andresn-su/homely",
+    "name": "andresn-su/singular",
     "type": "project",
     "autoload": {
         "psr-4": {
