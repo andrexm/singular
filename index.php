@@ -3,17 +3,14 @@
 ob_start();
 
 use Src\Controllers\Home;
-use Src\Core\Router;
+use Pecee\SimpleRouter\SimpleRouter;
 
 require "vendor/autoload.php";
 
-$router = new Router(BASE);
+SimpleRouter::setDefaultNamespace('\src\Controllers');
+SimpleRouter::get('/', [Home::class, 'index']);
 
-$router->get('/', [Home::class, 'index']);
-
-$router->dispatch();
-if ($router->error) {
-    echo view('error');
-}
+// Start the routing
+SimpleRouter::start();
 
 ob_end_flush();
