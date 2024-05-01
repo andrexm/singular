@@ -1,5 +1,5 @@
 {
-    "name": "andresn-su/singular",
+    "name": "andrexm/singular",
     "type": "project",
     "autoload": {
         "psr-4": {
@@ -12,7 +12,7 @@
     },
     "authors": [
         {
-            "name": "andresn-su",
+            "name": "andrexm",
             "email": "andre.s.04.get.up@gmail.com"
         }
     ],
