@@ -85,4 +85,13 @@ class Request
                 break;
         }
     }
+
+    /**
+     * @return array
+     */
+    public function getReqData(): array
+    {
+        $this->loadReqData();
+        return (array)$this->reqData;
+    }
 }
