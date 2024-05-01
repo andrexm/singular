@@ -2,9 +2,9 @@
 
 namespace Src\Models;
 
-use Src\Core\Database;
+use CoffeeCode\DataLayer\DataLayer;
 
-class User extends Database
+class User extends DataLayer
 {
     /**
      * Constructor

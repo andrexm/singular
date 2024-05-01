@@ -2,6 +2,8 @@
 
 namespace Src\Controllers;
 
+use Src\Models\User;
+
 class Home
 {
     public function index()
