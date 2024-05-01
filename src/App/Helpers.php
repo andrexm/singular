@@ -3,6 +3,7 @@
 use Src\Core\Request;
 use Src\Core\Session;
 use Src\Core\View;
+use Src\Core\Auth;
 
 
 // URLs --------------------------------------------------------------------
@@ -140,3 +141,37 @@ function request(): Request
 {
     return Request::getInstance();
 }
+
+
+// AUTHENTICATION --------------------------------------------------------------------
+
+/**
+* @return Auth
+*/
+function auth(): Auth
+{
+    return Auth::getInstance();
+}
+
+/**
+* @return bool
+*/
+function validate_email(string $email = ''): bool
+{
+    if($email == '' && request()->input("email")) $email = request()->input("email");
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+/**
+* @return bool
+*/
+function validate_password(string $password = ''): bool
+{
+    if($password == '' && request()->input("password")) $password = request()->input("password");
+
+    if(mb_strlen($password) >= 8) {
+        return true;
+    }
+    return false;
+}
+
