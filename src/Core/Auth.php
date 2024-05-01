@@ -45,22 +45,20 @@ class Auth
 			return false;
 		}
 
-		$request = Request::getInstance();
-		$email = $request->input("email");
-		$user = (new User())->find("email = :email", "email={$email}")->fetch();
+		$user = (new User())->findByEmail();
 		
 		if(!isset($user->email)) { // user not found
 			session()->set("error", "Email ou senha incorretos!");
 			return false;
 		}
 
-		if(!password_verify($request->input("password"), $user->password)) { // invalid password
+		if(!password_verify(request()->input("password"), $user->password)) { // invalid password
 			session()->set("error", "Email ou senha incorretos!");
 			return false;
 		}
 
 		session()->set("success", "Login realizado com sucesso!");
-		session()->set("email", $email);
+		session()->set("email", request()->input("email"));
 		session()->set("attempts", 0); // reset attempts counting
 		self::$user = $user;
 
@@ -82,7 +80,7 @@ class Auth
 	public static function activeUser(): User|bool
 	{
 		if(session()->has("email")) {
-			self::$user = (new User())->find("email = :email", "email=" . session()->email)->fetch();
+			self::$user = (new User())->findByEmail(session()->email);
 		}
 		return self::$user ?? false;
 	}
