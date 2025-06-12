@@ -91,7 +91,7 @@ class Session
      * Returns and deletes flash messages
      *
      * @param string $name
-     * @return void
+     * @return null
      */
     public function flash(string $name)
     {
