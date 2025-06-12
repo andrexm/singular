@@ -98,12 +98,12 @@ function view(string $view, $data = [])
  * Returns a flash message or an instance of the Session class
  *
  * @param string|null $name
- * @return void
+ * @return string|null|Session
  */
 function session(string $name = null)
 {
     if ($name) return (new Session)->flash($name);
-    return (new Session);
+    return new Session;
 }
 
 /**
