@@ -18,7 +18,6 @@
     ],
     "require": {
         "coffeecode/datalayer": "^2.0",
-        "jenssegers/blade": "^1.4",
         "pecee/simple-router": "^5.4"
     }
 }
